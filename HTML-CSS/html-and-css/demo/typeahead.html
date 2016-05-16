@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		(function() {
+
+  var recentSearchTH = null, dynTypeAhead = null;
+
+  $(document).ready(
+    function() {
+        $('input#id-search-bar').on('typeahead:selected', function(ev, suggestion) {
+         var searchText = $(this).val();
+         $("#typeAheadText").val(searchText);
+         $(this).closest('form').submit();
+        });
+        
+        $('input#id-search-bar').on('typeahead:autocomplete', function(ev, suggestion) {
+         var autoText = $(this).val();
+         ajaxSiteCatalyst('search', 'type', autoText);
+          });
+
+        $('input#id-search-bar').on('typeahead:idle', function(ev, suggestion) {
+          var idleText = $(this).val();
+          if(!idleText || idleText == null || idleText.length === 0){
+            hideSearchIcons();
+          }
+        });
+
+        $('input#id-search-bar').on('typeahead:close', function(ev, suggestion) {          
+          $(".tt-dataset-sams").parent().removeClass("dbI");
+        });
+
+        var timeoutVar;
+
+         $('input#id-search-bar').on('keyup', function(ev, suggestion) {
+          if(!timeoutVar){
+            clearTimeout(timeoutVar);
+          }
+          timeoutVar  = setTimeout(function(){
+            showHideSuggestions();
+          }, 200);          
+        });
+
+          $('input#id-search-bar').on('focus', function(ev, suggestion) {
+          showHideSuggestions();
+        });
+
+      $("#searchFormId").on('click', ".sc-sprite-search-close", function(event) {
+          $(this).closest("form").find("input#id-search-bar").val('');
+           hideSearchIcons();
+          dynTypeAhead.typeahead("destroy");
+          addDynTypeAhead();
+       //   dynTypeAhead = null;
+          return false;
+      });
+
+    });
+
+  function hideSearchIcons(){
+   $("#searchFormId .sc-sprite-search-close, #searchFormId .sc-sprite-search-arrow").addClass('hide');
+  }
+
+  
+   function getTypeAheadResults(query, asyncCallback) {
+    var delay = 300;
+    if('XDomainRequest' in window && window.XDomainRequest != null) {
+     var xdr = new XDomainRequest();
+     xdr.onload = function(e) {
+      var jsonData = $.parseJSON(xdr.responseText);
+      successCallback(jsonData, asyncCallback);
+     };
+     xdr.onerror= function(e) {
+      //console.log('type ahead error '+e);
+     };
+     xdr.open('GET', 'http://typeahead.samsclub.com/AutocompletionServer/complete?num=8&term=' + query);
+     xdr.send();
+    }else{
+     $.ajax({
+           url : "http://typeahead.samsclub.com/AutocompletionServer/complete?num=8",
+           error : errorCallback,
+           success : function(data) {   
+              successCallback(data, asyncCallback); 
+            },
+           method : "GET",
+           data : {
+             "term" : query
+           },
+           dataType : "json"
+      });
+    }
+  }
+
+  function successCallback(data, asyncCallback) {
+    
+    if (data && data.specific && data.specific.length) {
+        var finalResults = data.specific.map(function(element) {
+          return element.query;
+        });
+        asyncCallback(finalResults);      
+    }
+  }
+
+  function errorCallback(error) {
+  //  console.log("search typeahead ajax error");
+  }
+
+  var sourceCallback = function() {
+    
+    return function findMatches(query, syncCallback, asyncCallback) {
+      $("#searchFormId .sc-sprite-search-close, #searchFormId .sc-sprite-search-arrow").removeClass('hide');
+        getTypeAheadResults(query, asyncCallback);
+    };
+  };
+
+  function addDynTypeAhead() {
+    dynTypeAhead = $("input#id-search-bar").typeahead({
+      hint : false,
+      highlight : true,
+      minLength : 1
+    }, {
+      source : sourceCallback(),
+      limit : 16,
+      name: 'sams'
+    });
+  }
+
+  function showHideSuggestions(){
+    if($(".tt-dataset-sams").children().length > 0){
+            $(".tt-dataset-sams").parent().addClass("dbI");
+          }else{
+            $(".tt-dataset-sams").parent().removeClass("dbI");
+          }
+  }
+  
+  $(document).ready(function(){
+   addDynTypeAhead();
+  });
+
+})();
+	</script>
+</head>
+<body>
+
+</body>
+</html>

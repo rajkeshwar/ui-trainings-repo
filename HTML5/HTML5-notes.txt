@@ -1,0 +1,211 @@
+HTML5
+-----------------------------------------------------------------
+Some of new enhanced functions of HTML5 are:
+
+1) Improved semantics
+2) Forms 
+3) Canvas drawing
+4) Drag and Drop
+5) Local Storage
+6) Page-to-page message
+7) Desktop notification
+8) Video and Audio
+9) Web socket 
+10) Geolocation
+11) History
+12) Micromedia
+
+New elements in HTML5
+--------------------------------------------------------
+header, hgroup, nav, footer, article, section, and aside
+
+1) doctype
+--------------------------------------------------
+Older version:
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhttmli/DTD/xhtmi-strict.dtd">
+
+With HTML5 :
+<!DOCTYPE html>
+
+2) Character encoding
+---------------------------------------------------
+in HTML4 it looks like this:
+<meta http-equiv="Content-Type" content="text/httml;charset=utf-8">
+
+in HTML5 it is much simple
+<meta charset="utf-8">
+
+3) JavaScript and CSS links
+----------------------------------------------------
+In HTML4: 
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/mystyle.css" />
+
+
+In HTML5:
+<script src="assets/js/jquery.js"></script>
+<link rel="stylesheet" href="assets/css/mystyle.css"/>
+
+4) Syntax Writing Style
+----------------------------------------------------
+You can code in uppercase
+<SCRIPT SRC="MY-JAVASCRIPT.JS"></SCRIPT>
+
+You can write with no quotation marks:
+<script src=assets/js/jquery.js></script>
+
+You can skip the closing slash:
+<link rel="stylesheet" href="assets/css/mystyle.css">
+
+5) A simple HTML5 starting page
+----------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>page title</title>
+	<script src="assets/js/jquery.js"></script>
+	<link rel="stylesheet" href="assets/css/mystyle.css"/>
+</head>
+<body>
+
+</body>
+</html>
+
+6) The following are the 20 most popular class names used
+footer
+menu
+Title
+Small
+Text
+Content
+Header
+Nav
+Copyright
+Button
+Main
+Search
+Date
+SmallText
+Body
+Style
+Top
+White
+link
+
+
+Web-forms
+--------------------------------
+
+placeholder
+--------------------------------------
+<input type="text" name="username" placeholder="Enter username" />
+
+autofocus
+---------------------------------------
+It can be applied to the input type text, textarea and select.
+<input type="text" name="action" autofocus />
+
+required
+-----------------------------------
+<input type="text" name="username" placeholder="Enter username"  required/>
+
+autocomplete
+-------------------------------------
+HTML5 allows you to dissable auto-completion on a per-form or per-field basis.
+It has two possible values "on" and "off". By default is is "on".
+
+On form basis:- 
+<form action="login.do" autocomplete="off"> </from>
+
+On per field basis :- 
+<input type="text" name="username" placeholder="Enter username" autocomplete="off"/>
+
+
+INPUT TYPES
+--------------------------------------------------------------
+search
+<input name="query" type="search" />
+
+Contact Details
+--------------------------------------------------------------
+<input type="email" name="email"/>
+
+<input type="url" name="website"/>
+
+<input type="tel" name="phone"/>
+
+
+slider
+-----------------------------------------------------
+<input type="range" name="amount" min="5" max="20"/>
+
+
+Spinner
+------------------------------------------------------
+<input type="number" name="spin" min="5" max="20"/>
+
+Color picker
+-----------------------------------------------------
+<input type="color" name="bgcolor" />
+
+
+Regex
+-----------------------------
+<input type="text" name="zip" pattern="[\d]{5}(-[\d]{4})">
+
+
+NEW ELEMENTS
+----------------------------------------------------------------
+abbr :- 
+
+<abbr class="dtstart" title="1992-01-12">
+     January 12th, 1992
+</abbr>
+
+time :- 
+<time class="dtstart" datetime="1992-01-12" title="1992-01-12">
+     January 12th, 1992
+</time>
+
+meter :- 
+<meter>2 out of 10</meter>
+<meter min="0" max="1000" low="50" high="125" value="145" optimum="145" title="pounds">£145</meter>
+
+Progress :- 
+ <progress>60%</progress>
+<progress id="progress" min="0" max="100" value="30"></progress>
+
+
+STRUCTURE
+--------------------------------------------------------
+section:-
+The section is used to group the element thematically.
+
+header :- 
+A header will usually appear to the top of the document or section, but it does not have to.
+
+footer :- 
+It comes at the bottom of the document. It should contain information about the containing element,
+who wrote it, copyright information etc.
+
+aside :- 
+Aside element matches the concept of sidebar.
+
+article :- 
+It contains header, footer. Good to use for RSS and Atom feed
+
+hgroup :- 
+There will be situation where you want to show the header but dont want to show the content.
+
+Sectioning roots :- 
+blockquote, fieldset and td elments.
+
+blockquote, 
+For quoting blocks of content from another source within your document.
+
+
+CANVAS
+AUDIO
+VIDEO

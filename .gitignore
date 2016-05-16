@@ -1,0 +1,8 @@
+node_modules/
+bower_components/
+*.log
+
+Class-recordings/
+student-list.txt
+
+**/ext-imgs/**
