@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transition example</title>
+	<style type="text/css">
+		a.trans1 {
+			padding: 5px 10px;
+			background: #9c3;
+			-webkit-transition-property: background;
+			-webkit-transition-duration: 0.5s;
+			-webkit-transition-timing-function: ease;
+		}
+		a.trans1:hover {
+			background: #690;
+		}
+		a.trans2 {
+			padding: 5px 10px;
+			background: #9c3;
+			-webkit-transition-property: background;
+			-webkit-transition-duration: 0.3s;
+			-webkit-transition-timing-function: ease;
+			-webkit-transition-delay: 0.5s;
+		}
+		a.trans2:hover {
+			background: #690;
+		}
+	</style>
+</head>
+<body>
+	<h1>Transition example</h1>
+	<a href="#" class="trans1">Transition Me!</a>
+	<h2></h2>
+	<a href="#" class="trans2">Transition Me with delay!</a>
+</body>
+</html>

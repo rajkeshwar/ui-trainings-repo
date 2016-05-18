@@ -3,6 +3,7 @@ bower_components/
 *.log
 
 Class-recordings/
+CSS3/img/
 student-list.txt
 
 **/ext-imgs/**
