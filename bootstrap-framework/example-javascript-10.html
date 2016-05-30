@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap buttons</title>
+	<link rel="stylesheet" href="lib/css/bootstrap.css">
+	<script src="lib/js/jquery-1.12.4.js"></script>
+	<script src="lib/js/bootstrap.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>JavaScript example</h1>
+		<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+		  Popover on left
+		</button>
+
+		<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+		  Popover on top
+		</button>
+
+		<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+		sagittis lacus vel augue laoreet rutrum faucibus.">
+		  Popover on bottom
+		</button>
+
+		<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+		  Popover on right
+		</button>
+	</div>
+	<script type="text/javascript">
+		$(function () {
+		  $('[data-toggle="popover"]').popover()
+		})
+	</script>
+</body>
+</html>
