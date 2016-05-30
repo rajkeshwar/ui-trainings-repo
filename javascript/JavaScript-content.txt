@@ -1,0 +1,20 @@
+JavaScript
+================================
+
+1) Primitive Data Types, Arrays
+   i) typeof operator
+   ii) Numbers
+   iii) Infinity
+   iv) NaN
+
+2) Strings
+3) Boolean
+4) Comparison 
+   Undefined and null
+
+5) Arrays 
+   i) push and pop
+   ii) shift and unshift
+   iii) slice and splice
+   iv) split and join
+   v) forEach, filter, map 

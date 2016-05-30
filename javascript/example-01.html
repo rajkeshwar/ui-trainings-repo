@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Primitive types</title>
+	<script type="text/javascript">
+
+		// typeof operator is used to check the type
+		var num = 25;
+			console.log(typeof num); // "number"
+
+		var name = "Rajkeshwar";
+			console.log(typeof name); // "string"
+
+		var flag = true;
+			console.log(typeof flag); // "true"
+
+		var name2; // since I am not assigning with any value it will be undefined
+			console.log(typeof name2); // "undefined"
+
+		var obj = {
+			name: "Rajkeshwar",
+			phone: 8686356416
+		}; 
+			console.log(typeof obj); // "object"
+
+		function showName(){
+			return "Rajkeshwar";
+		}
+		console.log(typeof showName); // "function"
+	</script>
+</head>
+<body>
+	<h1>Typeof operator</h1>
+	<ul>
+		<li>number</li>
+		<li>string</li>
+		<li>boolean</li>
+		<li>undefined</li>
+		<li>object</li>
+		<li>function</li>
+	</ul>
+</body>
+</html>
